@@ -7,9 +7,11 @@ import messageRoute from "./routes/messageRoute.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { app,server } from "./socket/socket.js";
-dotenv.config({});
+dotenv.config({
+    path:'./.env'
+});
 
- 
+console.log("cors path : ",process.env.FRONTEND_HOST)
 const PORT = process.env.PORT || 5000;
 
 // middleware
@@ -17,7 +19,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json()); 
 app.use(cookieParser());
 const corsOption={
-    origin:'http://localhost:3000',
+    origin:"http://localhost:3000",
     credentials:true
 };
 app.use(cors(corsOption)); 
