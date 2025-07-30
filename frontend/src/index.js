@@ -10,7 +10,8 @@ import { persistStore } from 'redux-persist';
 
 let persistor = persistStore(store);
 
-export const BASE_URL="http://localhost:8080"
+export const BASE_URL=`${process.env.REACT_APP_BACKEND_HOST}`
+console.log(BASE_URL)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
